@@ -1,27 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_form.c                                     :+:      :+:    :+:   */
+/*   ft_printtab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmadad <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/18 10:34:12 by hmadad            #+#    #+#             */
-/*   Updated: 2016/11/18 14:36:18 by hmadad           ###   ########.fr       */
+/*   Created: 2016/11/25 10:28:52 by hmadad            #+#    #+#             */
+/*   Updated: 2016/11/26 17:54:25 by salibert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-t_tetriminos	ft_check_grille(char **tab)
+void	ft_printtab(char **tab)
 {
+	int		x;
+	int		y;
 
+	x = 0;
+	y = 0;
+	while (tab[x][y])
+	{
+		while (tab[x])
+		{
+			ft_putchar(tab[x][y]);
+			x++;
+		}
+		ft_putchar('\n');
+		x = 0;
+		y++;
+	}
 }
 
-t_tetriminos	*ft_find_form(char **tab)
+void	ft_printtab_fd(char **tab, int fd)
 {
-	t_tetriminos	*tetri_tab;
+	int x;
+	int	y;
 
-	(!(tetri_tab = (t_tetriminos*)malloc(sizeof(*tetri_tab) * (ft_nbelem(file) + 1))))
-		return (0);
-
+	x = 0;
+	y = 0;
+	while (tab[x][y])
+	{
+		while (tab[x])
+		{
+			write(fd, &tab[x][y], 1);
+			x++;
+		}
+		ft_putchar('\n');
+		x = 0;
+		y++;
+	}
 }

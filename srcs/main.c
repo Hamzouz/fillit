@@ -6,7 +6,7 @@
 /*   By: hmadad <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 10:00:14 by hmadad            #+#    #+#             */
-/*   Updated: 2016/11/16 15:09:48 by hmadad           ###   ########.fr       */
+/*   Updated: 2016/11/27 16:30:25 by salibert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 int		main(int argc, char **argv)
 {
+	char	c;
+	int		nb;
+
+	c = '\0';
+	nb = 0;
 	if (argc == 2)
-		ft_read(argv[1]);
+		ft_read(argv[1], c, nb);
+	if (argc > 2 || argc < 2)
+		ft_errors(-3);
 	return (0);
 }
